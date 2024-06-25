@@ -1,20 +1,20 @@
 django-x509
 ===========
 
-.. image:: https://github.com/openwisp/django-x509/workflows/Django-x509%20Build/badge.svg?branch=master
-   :target: https://github.com/openwisp/django-x509/actions?query=workflow%3A"Django-x509+Build%22"
+.. image:: https://github.com/edge-servers/django-x509/workflows/Django-x509%20Build/badge.svg?branch=master
+   :target: https://github.com/edge-servers/django-x509/actions?query=workflow%3A"Django-x509+Build%22"
    :alt: CI build status
 
-.. image:: https://coveralls.io/repos/openwisp/django-x509/badge.svg
-   :target: https://coveralls.io/r/openwisp/django-x509
+.. image:: https://coveralls.io/repos/immunity/django-x509/badge.svg
+   :target: https://coveralls.io/r/immunity/django-x509
    :alt: Test Coverage
 
-.. image:: https://img.shields.io/librariesio/release/github/openwisp/django-x509
-   :target: https://libraries.io/github/openwisp/django-x509#repository_dependencies
+.. image:: https://img.shields.io/librariesio/release/github/immunity/django-x509
+   :target: https://libraries.io/github/immunity/django-x509#repository_dependencies
    :alt: Dependency monitoring
 
 .. image:: https://img.shields.io/gitter/room/nwjs/nw.js.svg
-   :target: https://gitter.im/openwisp/general
+   :target: https://gitter.im/immunity/general
    :alt: chat
 
 .. image:: https://badge.fury.io/py/django-x509.svg
@@ -31,18 +31,18 @@ django-x509
 
 ------------
 
-.. image:: https://github.com/openwisp/django-x509/raw/master/docs/demo_x509.gif
+.. image:: https://github.com/edge-servers/django-x509/raw/master/docs/demo_x509.gif
    :alt: demo
 
 ------------
 
 Simple reusable django app implementing x509 PKI certificates management.
 
-**Want to help OpenWISP?** `Find out how to help us grow here
-<http://openwisp.io/docs/general/help-us.html>`_.
+**Want to help Immunity?** `Find out how to help us grow here
+<http://immunity.io/docs/general/help-us.html>`_.
 
-.. image:: https://raw.githubusercontent.com/openwisp/openwisp2-docs/master/assets/design/openwisp-logo-black.svg
-  :target: http://openwisp.org
+.. image:: https://raw.githubusercontent.com/immunity/immunity2-docs/master/assets/design/immunity-logo-black.svg
+  :target: http://immunity.org
 
 ------------
 
@@ -95,13 +95,13 @@ Install tarball:
 
 .. code-block:: shell
 
-    pip install https://github.com/openwisp/django-x509/tarball/master
+    pip install https://github.com/edge-servers/django-x509/tarball/master
 
 Alternatively you can install via pip using git:
 
 .. code-block:: shell
 
-    pip install -e git+git://github.com/openwisp/django-x509#egg=django-x509
+    pip install -e git+git://github.com/immunity/django-x509#egg=django-x509
 
 If you want to contribute, install your cloned fork:
 
@@ -193,13 +193,13 @@ Build from docker file:
 
 .. code-block:: shell
 
-   sudo docker build -t openwisp/djangox509 .
+   sudo docker build -t immunity/djangox509 .
 
 Run the docker container:
 
 .. code-block:: shell
 
-   sudo docker run -it -p 8000:8000 openwisp/djangox509
+   sudo docker run -it -p 8000:8000 immunity/djangox509
 
 Settings
 --------
@@ -350,15 +350,15 @@ be protected with authentication or not.
 Extending django-x509
 ---------------------
 
-One of the core values of the OpenWISP project is `Software Reusability <http://openwisp.io/docs/general/values.html#software-reusability-means-long-term-sustainability>`_,
+One of the core values of the Immunity project is `Software Reusability <http://immunity.io/docs/general/values.html#software-reusability-means-long-term-sustainability>`_,
 for this reason *django-x509* provides a set of base classes
 which can be imported, extended and reused to create derivative apps.
 
 In order to implement your custom version of *django-x509*,
 you need to perform the steps described in this section.
 
-When in doubt, the code in the `test project <https://github.com/openwisp/django-x509/tree/master/tests/openwisp2/>`_
-and the `sample app <https://github.com/openwisp/django-x509/tree/master/tests/openwisp2/sample_x509/>`_
+When in doubt, the code in the `test project <https://github.com/edge-servers/django-x509/tree/master/tests/immunity2/>`_
+and the `sample app <https://github.com/edge-servers/django-x509/tree/master/tests/immunity2/sample_x509/>`_
 will serve you as source of truth:
 just replicate and adapt that code to get a basic derivative of
 *django-x509* working.
@@ -398,12 +398,12 @@ ensuring also that ``django_x509`` has been removed:
 For more information about how to work with django projects and django apps,
 please refer to the `django documentation <https://docs.djangoproject.com/en/dev/intro/tutorial01/>`_.
 
-2. Install ``django-x509`` & ``openwisp-utils``
+2. Install ``django-x509`` & ``immunity-utils``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Install (and add to the requirement of your project)::
 
-    pip install django-x509 openwisp-utils
+    pip install django-x509 immunity-utils
 
 3. Add ``EXTENDED_APPS``
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -414,10 +414,10 @@ Add the following to your ``settings.py``:
 
     EXTENDED_APPS = ['django_x509']
 
-4. Add ``openwisp_utils.staticfiles.DependencyFinder``
+4. Add ``immunity_utils.staticfiles.DependencyFinder``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add ``openwisp_utils.staticfiles.DependencyFinder`` to
+Add ``immunity_utils.staticfiles.DependencyFinder`` to
 ``STATICFILES_FINDERS`` in your ``settings.py``:
 
 .. code-block:: python
@@ -425,13 +425,13 @@ Add ``openwisp_utils.staticfiles.DependencyFinder`` to
     STATICFILES_FINDERS = [
         'django.contrib.staticfiles.finders.FileSystemFinder',
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-        'openwisp_utils.staticfiles.DependencyFinder',
+        'immunity_utils.staticfiles.DependencyFinder',
     ]
 
-5. Add ``openwisp_utils.loaders.DependencyLoader``
+5. Add ``immunity_utils.loaders.DependencyLoader``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add ``openwisp_utils.loaders.DependencyLoader`` to ``TEMPLATES`` in your ``settings.py``:
+Add ``immunity_utils.loaders.DependencyLoader`` to ``TEMPLATES`` in your ``settings.py``:
 
 .. code-block:: python
 
@@ -442,7 +442,7 @@ Add ``openwisp_utils.loaders.DependencyLoader`` to ``TEMPLATES`` in your ``setti
                 'loaders': [
                     'django.template.loaders.filesystem.Loader',
                     'django.template.loaders.app_directories.Loader',
-                    'openwisp_utils.loaders.DependencyLoader',
+                    'immunity_utils.loaders.DependencyLoader',
                 ],
                 'context_processors': [
                     'django.template.context_processors.debug',
@@ -459,8 +459,8 @@ Add ``openwisp_utils.loaders.DependencyLoader`` to ``TEMPLATES`` in your ``setti
 
 Please refer to the following files in the sample app of the test project:
 
-- `sample_x509/__init__.py <https://github.com/openwisp/django-x509/tree/master/tests/openwisp2/sample_x509/__init__.py>`_.
-- `sample_x509/apps.py <https://github.com/openwisp/django-x509/tree/master/tests/openwisp2/sample_x509/apps.py>`_.
+- `sample_x509/__init__.py <https://github.com/edge-servers/django-x509/tree/master/tests/immunity2/sample_x509/__init__.py>`_.
+- `sample_x509/apps.py <https://github.com/edge-servers/django-x509/tree/master/tests/immunity2/sample_x509/apps.py>`_.
 
 You have to replicate and adapt that code in your project.
 
@@ -531,7 +531,7 @@ For more information, refer to the
 10. Create the admin
 ~~~~~~~~~~~~~~~~~~~~
 
-Refer to the `admin.py file of the sample app <https://github.com/openwisp/django-x509/tree/master/tests/openwisp2/sample_x509/admin.py>`_.
+Refer to the `admin.py file of the sample app <https://github.com/edge-servers/django-x509/tree/master/tests/immunity2/sample_x509/admin.py>`_.
 
 To introduce changes to the admin, you can do it in two main ways which are described below.
 
@@ -580,7 +580,7 @@ monkey patching, you can proceed as follows:
 11. Create root URL configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Please refer to the `urls.py <https://github.com/openwisp/django-x509/tree/master/tests/openwisp2/urls.py>`_
+Please refer to the `urls.py <https://github.com/edge-servers/django-x509/tree/master/tests/immunity2/urls.py>`_
 file in the test project.
 
 For more information about URL configuration in django, please refer to the
@@ -630,19 +630,19 @@ For more information about automated tests in django, please refer to
 Contributing
 ------------
 
-Please refer to the `OpenWISP contributing guidelines <http://openwisp.io/docs/developer/contributing.html>`_.
+Please refer to the `Immunity contributing guidelines <http://immunity.io/docs/developer/contributing.html>`_.
 
 Support
 -------
 
-See `OpenWISP Support Channels <http://openwisp.org/support.html>`_.
+See `Immunity Support Channels <http://immunity.org/support.html>`_.
 
 Changelog
 ---------
 
-See `CHANGES <https://github.com/openwisp/django-x509/blob/master/CHANGES.rst>`_.
+See `CHANGES <https://github.com/edge-servers/django-x509/blob/master/CHANGES.rst>`_.
 
 License
 -------
 
-See `LICENSE <https://github.com/openwisp/django-x509/blob/master/LICENSE>`_.
+See `LICENSE <https://github.com/edge-servers/django-x509/blob/master/LICENSE>`_.

@@ -32,7 +32,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'openwisp2.urls'
+ROOT_URLCONF = 'immunity2.urls'
 
 TIME_ZONE = 'Europe/Rome'
 LANGUAGE_CODE = 'en-gb'
@@ -49,7 +49,7 @@ TEMPLATES = [
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader',
-                'openwisp_utils.loaders.DependencyLoader',
+                'immunity_utils.loaders.DependencyLoader',
             ],
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -64,7 +64,7 @@ TEMPLATES = [
 if os.environ.get('SAMPLE_APP', False):
     INSTALLED_APPS.remove('django_x509')
     EXTENDED_APPS = ['django_x509']
-    INSTALLED_APPS.append('openwisp2.sample_x509')
+    INSTALLED_APPS.append('immunity2.sample_x509')
     DJANGO_X509_CA_MODEL = 'sample_x509.Ca'
     DJANGO_X509_CERT_MODEL = 'sample_x509.Cert'
 

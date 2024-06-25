@@ -29,9 +29,9 @@ class TestX509Mixin(object):
             country_code='IT',
             state='RM',
             city='Rome',
-            organization_name='OpenWISP',
+            organization_name='Immunity',
             email='test@test.com',
-            common_name='openwisp.org',
+            common_name='immunity.org',
             extensions=[],
         )
         options.update(kwargs)
@@ -53,7 +53,7 @@ class TestX509Mixin(object):
             city='Rome',
             organization_name='Test',
             email='test@test.com',
-            common_name='openwisp.org',
+            common_name='immunity.org',
             extensions=[],
         )
         options.update(kwargs)

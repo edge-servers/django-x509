@@ -174,7 +174,7 @@ k9Y1S1C9VB0YsDZTeZUggJNSDN4YrKjIevYZQQIhAOWec6vngM/PlI1adrFndd3d
         self.assertEqual(issuer.countryName, 'IT')
         self.assertEqual(issuer.stateOrProvinceName, 'RM')
         self.assertEqual(issuer.localityName, 'Rome')
-        self.assertEqual(issuer.organizationName, 'OpenWISP')
+        self.assertEqual(issuer.organizationName, 'Immunity')
         self.assertEqual(issuer.emailAddress, 'test@test.com')
         self.assertEqual(issuer.commonName, 'ow2')
         # verify field attribtues
@@ -350,7 +350,7 @@ k9Y1S1C9VB0YsDZTeZUggJNSDN4YrKjIevYZQQIhAOWec6vngM/PlI1adrFndd3d
         cert._fill_subject(x509.get_subject())
         self.city = 'Rome'
         cert._fill_subject(x509.get_subject())
-        self.organization_name = 'OpenWISP'
+        self.organization_name = 'Immunity'
         cert._fill_subject(x509.get_subject())
         self.email = 'test@test.com'
         cert._fill_subject(x509.get_subject())
